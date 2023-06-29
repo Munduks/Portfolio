@@ -1,31 +1,26 @@
-// import { Routes as RoutesWrapper, Route } from "react-router-dom";
-// import { navbarItems } from "./const";
-
-// const Routes = () => {
-//   return (
-//     <RoutesWrapper>
-//       {navbarItems.map(({ path, Component }) => (
-//         <Route key={path} path={path} element={<Component />} />
-//       ))}
-//     </RoutesWrapper>
-//   );
-// };
-
-// export default Routes;
-
+import React from "react";
 import { Routes as RoutesWrapper, Route } from "react-router-dom";
+import Header from "../components/Header/Header";
+import Home from "../pages/Home/Home";
 import About from "../pages/About/About";
 import Works from "../pages/Works/Works";
-import Contacts from "../pages/Contacts/Contacts";
+import Contact from "../pages/Contacts/Contacts";
+import Footer from "../components/Footer/Footer";
 
-const Routes = ({ routes }) => {
+const Routes = () => {
   return (
-    <RoutesWrapper>
-      <Route path="/" element={<About />} /> {/* Pagrindinis puslapis */}
-      <Route path="/about" element={<About />} />
-      <Route path="/work" element={<Works />} />
-      <Route path="/contact" element={<Contacts />} />
-    </RoutesWrapper>
+    <>
+      <Header />
+
+      <RoutesWrapper>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/works" element={<Works />} />
+        <Route path="/contact" element={<Contact />} />
+      </RoutesWrapper>
+
+      <Footer />
+    </>
   );
 };
 

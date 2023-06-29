@@ -1,7 +1,3 @@
-// import About from "../pages/About/About";
-// import Contacts from "../pages/Contacts/Contacts";
-// import Works from "../components/Works/Works";
-
 export const ABOUT_ROUTE = "/about";
 export const CONTACTS_ROUTE = "/contact";
 export const WORKS_ROUTE = "/work";

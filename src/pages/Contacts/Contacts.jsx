@@ -1,93 +1,96 @@
 import React, { useState } from "react";
-import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
-import "../Contacts/Contacts.scss";
+import Button from "../../components/Button/Button";
+import { FaFacebook, FaGithub, FaInstagram } from "react-icons/fa";
+import "./Contacts.scss";
 
-const Contacts = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+const Contact = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    localStorage.setItem("contactData", JSON.stringify(formData));
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-    });
+    // Išsaugome duomenis į localStorage
+    const user = { name, email, message };
+    localStorage.setItem("userData", JSON.stringify(user));
+
+    // Išvalome formos laukus po duomenų pateikimo
+    setName("");
+    setEmail("");
+    setMessage("");
   };
 
   return (
     <div className="contact-page">
-      <h2>Kontaktai</h2>
       <form className="contact-form" onSubmit={handleSubmit}>
-        <label htmlFor="name">Vardas:</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleInputChange}
-          required
-        />
+        <div>
+          <h2>Get In Touch</h2>
+          <p>
+            Fill in your info in the form below and I look forward to hearing
+            from you!
+          </p>
+        </div>
+        <div className="form-group">
+          <label>Vardas</label>
+          <input
+            type="text"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
 
-        <label htmlFor="email">El. paštas:</label>
-        <input
-          type="text"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleInputChange}
-          required
-        />
+          <label>Email</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
 
-        <label htmlFor="message">Žinutė:</label>
-        <textarea
-          id="message"
-          name="message"
-          value={formData.message}
-          onChange={handleInputChange}
-          required
-        ></textarea>
+          <label>Message</label>
+          <textarea
+            id="message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            required
+          ></textarea>
 
-        <button type="submit">Siųsti</button>
+          <Button>Submit</Button>
+        </div>
       </form>
-
       <div className="social-media-icons">
-        <a
-          href="https://www.facebook.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaFacebook />
-        </a>
-        <a
-          href="https://www.twitter.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaTwitter />
-        </a>
-        <a
-          href="https://www.instagram.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaInstagram />
-        </a>
+        <div>
+          <p>Feeling social? Find me on these online spaces too!</p>
+        </div>
+        <div className="social-media-group">
+          <a
+            href="https://www.facebook.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaFacebook />
+          </a>
+          <a
+            href="https://github.com/Munduks"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaGithub />
+          </a>
+          <a
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaInstagram />
+          </a>
+        </div>
       </div>
     </div>
   );
 };
 
-export default Contacts;
+export default Contact;
