@@ -7,11 +7,13 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  color:rgb(146, 185, 143);
+
 }
 
 .App {
   text-align: center;
-  font-family: Arial, sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
 
 header, footer {

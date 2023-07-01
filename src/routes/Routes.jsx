@@ -11,14 +11,12 @@ const Routes = () => {
   return (
     <>
       <Header />
-
       <RoutesWrapper>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/works" element={<Works />} />
         <Route path="/contact" element={<Contact />} />
       </RoutesWrapper>
-
       <Footer />
     </>
   );

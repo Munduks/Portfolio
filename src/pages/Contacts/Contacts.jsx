@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import Button from "../../components/Button/Button";
 import { FaFacebook, FaGithub, FaInstagram } from "react-icons/fa";
 import "./Contacts.scss";
@@ -57,7 +58,6 @@ const Contact = () => {
             onChange={(e) => setMessage(e.target.value)}
             required
           ></textarea>
-
           <Button>Submit</Button>
         </div>
       </form>
@@ -93,4 +93,9 @@ const Contact = () => {
   );
 };
 
+Contact.propTypes = {
+  name: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired,
+};
 export default Contact;

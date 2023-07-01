@@ -9,7 +9,7 @@ const About = () => {
         <span className="heading">About me</span>
         <span className="heading-subject ">
           Here you will find more information about me, what I do, and my
-          current skills mostly in terms of programming and technology
+          current skills .
         </span>
       </h2>
       <div className="about-content">
@@ -37,7 +37,7 @@ const About = () => {
         <div className="main-content">
           <h3 className="content-title">My skills</h3>
           <div className="skills-content">
-            <div className="skills">CCS</div>
+            <div className="skills">CSS</div>
             <div className="skills">HTML</div>
             <div className="skills">REACT</div>
             <div className="skills">JavaSpript</div>
